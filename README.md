@@ -32,7 +32,10 @@ Compile and fit the model
 Predict for custom inputs using this model
 
 ## PROGRAM
+Developed By: **Shafeeq Ahamed. S**
+</br>
 
+Register No: **212221230092**
 ### Libraries
 ```py
 import pandas as pd
@@ -49,6 +52,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.datasets import cifar10
 from tensorflow.keras.applications import VGG19
 ```
+</br>
 
 ### Load Dataset & Increse the size of it
 ```py
@@ -74,36 +78,28 @@ y_test_onehot = utils.to_categorical(y_test,10)
 
 ### Import VGG-19 model & add dense layers
 ```py
-base_model = VGG19(include_top=False,
-                   weights = "imagenet",
-                   input_shape = (32,32,3)
-                   )
+base_model = VGG19(include_top=False, weights = "imagenet",
+                   input_shape = (32,32,3))
 
 model = Sequential()
 model.add(base_model)
 model.add(Flatten())
-
 model.add(Dense(1024,activation=("relu")))
 model.add(Dense(512,activation=("relu")))
 model.add(Dense(256,activation=("relu")))
 model.add(Dense(128,activation=("relu")))
 model.add(Dense(10,activation=("relu")))
-
 model.summary()
-
 model.compile(loss="categorical_crossentropy",
               optimizer="adam",
               metrics="accuracy")
 
 batch_size = 75
 epoch = 25
-
 train_image_generator  = train_generator.flow(x_train,y_train_onehot,
-                                         batch_size = batch_size)
-					 
+                                         batch_size = batch_size)		 
 test_image_generator  = test_generator.flow(x_test,y_test_onehot,
-                                         batch_size = batch_size)
-					 
+                                         batch_size = batch_size)		 
 model.fit(train_image_generator,epochs=epoch,
           validation_data = test_image_generator)
 ```
