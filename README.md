@@ -128,7 +128,7 @@ print(classification_report(y_test,x_test_predictions))
 
 Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation Accuracy Vs Iteration                   |               
 :------------------------------------------------------:| :-----------------------------------------------------------:|
-<img src = "https://user-images.githubusercontent.com/93427237/230611064-952bf45f-b5bb-4521-a82c-df4675852daa.png">    |                                             <img  src="https://user-images.githubusercontent.com/93427237/230611103-b8d67fc0-1de5-495d-b449-ba77e77c202a.png">     |
+| | |
 
 ### Classification Report
 
