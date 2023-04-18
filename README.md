@@ -8,7 +8,8 @@ The dataset is divided into five training batches and one test batch, each with 
 
 Here are the classes in the dataset, as well as 10 random images from each:
 
-
+<img width='500' src='https://user-images.githubusercontent.com/93427237/232681405-cc61aa61-1ee8-4303-862d-e90ea1d37f13.png'>
+  
 VGG19 is a variant of the VGG model which in short consists of 19 layers (16 convolution layers, 3 Fully connected layer, 5 MaxPool layers and 1 SoftMax layer).
 
 Now we have use transfer learning with the help of VGG-19 architecture and use it to classify the CIFAR-10 Dataset
