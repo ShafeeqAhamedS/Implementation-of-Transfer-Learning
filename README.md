@@ -120,11 +120,13 @@ print(classification_report(y_test,x_test_predictions))
 
 Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation Accuracy Vs Iteration                   |               
 :------------------------------------------------------:| :-----------------------------------------------------------:|
-| | |
-
+|![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/d584954d-6180-4fac-88ae-80d9ec47414b) |![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/abc48ad9-1ca7-4bc1-a221-72cd20cb8ad2)
+ |
 ### Classification Report
+![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/b6dac570-4221-4f55-8e06-68b0c440b6ba)
 
 ### Confusion Matrix
+![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/4aeedc50-7454-42ae-9031-cfb94fb9027b)
 
 ## Conculsion
 * We got an Accuracy of 60% with this model.There could be several reasons for not achieving higher accuracy. Here are a few possible explanations:
