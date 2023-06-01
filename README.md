@@ -7,8 +7,9 @@ The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6
 The dataset is divided into five training batches and one test batch, each with 10000 images. The test batch contains exactly 1000 randomly-selected images from each class. The training batches contain the remaining images in random order, but some training batches may contain more images from one class than another. Between them, the training batches contain exactly 5000 images from each class.
 
 Here are the classes in the dataset, as well as 10 random images from each:
-
+<p align="center">
 <img width='500' src='https://user-images.githubusercontent.com/93427237/232681405-cc61aa61-1ee8-4303-862d-e90ea1d37f13.png'>
+ </p>
   
 VGG19 is a variant of the VGG model which in short consists of 19 layers (16 convolution layers, 3 Fully connected layer, 5 MaxPool layers and 1 SoftMax layer).
 
@@ -54,14 +55,10 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from keras.datasets import cifar10
 from tensorflow.keras.applications import VGG19
 ```
-</br>
-
-### Load Dataset & Increse the size of it
+### Loading Dataset &  One Hot Encoding Outputs
 ```py
 (x_train,y_train),(x_test,y_test)=cifar10.load_data()
-```
-### One Hot Encoding Outputs
-```py
+
 y_train_onehot = utils.to_categorical(y_train,10)
 y_test_onehot = utils.to_categorical(y_test,10)
 ```
@@ -88,15 +85,10 @@ model.compile(optimizer=Adam(learning_rate=0.001),
               loss='sparse_categorical_crossentropy', 
               metrics=['accuracy'])
 
-learning_rate_reduction = ReduceLROnPlateau(monitor='val_accuracy', 
-                                            patience=3, 
-                                            verbose=1, 
-                                            factor=0.5, 
-                                            min_lr=0.00001)
+learning_rate_reduction = ReduceLROnPlateau(monitor='val_accuracy',patience=3,
+                                            verbose=1,factor=0.5,min_lr=0.00001)
 
-model.fit(x_train, y_train, 
-          batch_size=500, epochs=10, 
-          validation_data=(x_test, y_test), 
+model.fit(x_train, y_train, batch_size=500, epochs=10, validation_data=(x_test, y_test), 
           callbacks=[learning_rate_reduction])
 ```
 ### Metrics
@@ -104,13 +96,11 @@ model.fit(x_train, y_train,
 metrics = pd.DataFrame(model.history.history)
 
 metrics[['loss','val_loss']].plot()
-
 metrics[['accuracy','val_accuracy']].plot()
 
 x_test_predictions = np.argmax(model.predict(x_test), axis=1)
 
 print(confusion_matrix(y_test,x_test_predictions))
-
 print(classification_report(y_test,x_test_predictions))
 ```
 
@@ -123,10 +113,10 @@ Training Loss, Validation Loss Vs Iteration             | Accuracy, Validation A
 |![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/d584954d-6180-4fac-88ae-80d9ec47414b) |![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/abc48ad9-1ca7-4bc1-a221-72cd20cb8ad2)
  |
 ### Classification Report
-![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/b6dac570-4221-4f55-8e06-68b0c440b6ba)
+<img width="400" src="https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/b6dac570-4221-4f55-8e06-68b0c440b6ba">
 
 ### Confusion Matrix
-![image](https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/4aeedc50-7454-42ae-9031-cfb94fb9027b)
+<img width="350" src="https://github.com/ShafeeqAhamedS/Implementation-of-Transfer-Learning/assets/93427237/4aeedc50-7454-42ae-9031-cfb94fb9027b">
 
 ## Conculsion
 * We got an Accuracy of 60% with this model.There could be several reasons for not achieving higher accuracy. Here are a few possible explanations:
